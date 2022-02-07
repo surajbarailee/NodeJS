@@ -1,6 +1,7 @@
-import chalk from 'chalk'
-import yargs from 'yargs'
-import {hideBin} from 'yargs/helpers'
+import chalk from 'chalk';
+import yargs from 'yargs';
+import {hideBin} from 'yargs/helpers';
+import {addNotes,removeNote} from "./notes.js";
 
 
 
@@ -23,8 +24,7 @@ yargs(hideBin(process.argv)).command({
         }
     },
     handler:(argv)=>{
-        console.log('Title',argv.title)
-        console.log('Body',argv.body)
+        addNotes(argv.title,argv.body)
     }
 }
 ).parse();
@@ -57,7 +57,14 @@ yargs(hideBin(process.argv)).command({
 yargs(hideBin(process.argv)).command({
     command:'remove',
     describe:'Remove a note',
-    handler:()=>{
-        console.log('Removing a note')
+    builder:{
+        title:{
+            describe:"Notes title",
+            demandOption:true,
+            type:"string"
+        }
+    },
+    handler:(argv)=>{
+        removeNote(argv.title)
     }
 }).parse();
