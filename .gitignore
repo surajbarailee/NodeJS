@@ -1,2 +1,4 @@
 /notes-app/node_modules
 /playground
+/weather-app/node_modules
+/weather-app/api*

@@ -4,6 +4,11 @@ import fs from "fs"
 const readNote = (title) => {
     const notes = loadNotes()
     const note = notes.find((note) => note.title === title)
+    debugger
+    if (!note){
+        console.log("notes not found")
+        return
+    }
     console.log('Title:',note.title)
     console.log('Body:',note.body)
 }
