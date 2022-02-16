@@ -14,10 +14,12 @@ const geoCode = (address, callback) => {
       } else if (response.body.features.length === 0) {
         callback("Unable to Connect to location service", undefined);
       } else {
+        console.log('location is ' + response.body.features[0].place_name)
         callback(undefined, {
-          latitude: response.body.features[0].center[0],
-          longitude: response.body.features[0].center[1],
+          latitude: response.body.features[0].center[1],
+          longitude: response.body.features[0].center[0],
           location: response.body.features[0].place_name,
+          
         });
       }
     });
