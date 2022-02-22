@@ -2,3 +2,4 @@
 /playground
 /weather-app/node_modules
 /weather-app/api*
+/web-server/node_modules
